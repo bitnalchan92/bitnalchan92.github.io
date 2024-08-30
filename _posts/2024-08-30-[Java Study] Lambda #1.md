@@ -8,7 +8,9 @@ tags: [lambda]
 pin: false
 math: false
 mermaid: true
-alt: [Java Study] Lambda #1
 ---
 
+
+
 # # Lambda
+
