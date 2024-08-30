@@ -16,7 +16,7 @@ mermaid: true
 
 ## 개념
 
-- 람다식은 메서드를 하나의 식으로 표현한 것.
+- 람다식은 메서드를 하나의 식으로 표현한 것
 - 람다식은 단 1개의 추상메서드로 구성된 인터페이스의 구현 객체만 람다식으로 표현이 가능
   - 위 인터페이스를 함수형 인터페이스(Functional Interface)라고 한다.
 - annotation은 @FunctionalInterface를 붙이는데, 이는 선택사항으로 두 개 이상의 추상메서드가 선언되면 컴파일 오류가 발생
@@ -45,7 +45,7 @@ mermaid: true
 ## 연습
 
 ```java
-package ...
+package bitnalchan92
 
 @FunctionalInterface
 public interface Parse { 
@@ -54,9 +54,9 @@ public interface Parse {
 ```
 
 ```java
-package ...
+package bitnalchan92
 
-public class ... {
+public class Parse_Lambda {
     public static void main(String[] args) {
         Parse p;
 
@@ -77,9 +77,11 @@ public class ... {
         p = (a, b) -> a.equals(b);
         System.out.println(p.isSame("d", "e"));
 
+        // ✨ 아래 문장은 익숙하진 않네...
         p = String::equals;
         System.out.println(p.isSame("f", "f"));
     }
 }
 ```
 
+![스크린샷 2024-08-30 10.59.47](./2024-08-30-[Java Study] Lambda #1.assets/스크린샷 2024-08-30 10.59.47.png)
