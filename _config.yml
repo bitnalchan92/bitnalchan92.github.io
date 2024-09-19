@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: 이모조모 노트 # the main title
 
-tagline: 방학동 토박이 # it will display as the sub-title
+tagline: 방학동 토박이's # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
