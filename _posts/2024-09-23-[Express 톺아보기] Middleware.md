@@ -2,7 +2,7 @@
 title: "[Express 톺아보기] Middleware"
 description: "Middleware를 톺아보는 시간을 가져보자..."
 date: 2024-09-23
-categories: [express, middleware]
+categories: [express, 톺아보기]
 tags: [express, middleware]
 ---
 
