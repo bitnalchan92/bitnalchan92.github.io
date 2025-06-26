@@ -14,7 +14,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 이모조모 노트 # the main title
+title: 끄적끄적 # the main title
 
 tagline: 방학동 토박이's # it will display as the sub-title
 
@@ -145,7 +145,7 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 4
+paginate: 10
 
 # The base URL of your site
 baseurl: ""
