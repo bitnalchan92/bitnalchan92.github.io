@@ -22,3 +22,10 @@ package-lock.json
 !.vscode/extensions.json
 
 # Misc
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Image backups
+assets/img/.backup/

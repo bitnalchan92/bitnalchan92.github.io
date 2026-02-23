@@ -14,7 +14,7 @@ order: 4
 --- 
 
 🐶
-![bori.jpg](../assets/img/bori.jpg)
+![bori.jpg](/assets/img/bori.jpg)
 
 🐟
-![fish.jpg](../assets/img/fish.JPG)
+![fish.jpg](/assets/img/fish.JPG)
