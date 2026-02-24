@@ -31,7 +31,7 @@ OPTIMIZED_COUNT=0
 SKIPPED_COUNT=0
 
 # 이미지 파일 찾기 (jpg, jpeg, png)
-find "$TARGET_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | while read -r IMAGE; do
+while read -r IMAGE; do
     # README 파일은 건너뛰기
     if [[ "$IMAGE" == *"README"* ]]; then
         continue
@@ -52,7 +52,7 @@ find "$TARGET_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png
         echo -e "${GREEN}✓${NC}  $FILENAME (${WIDTH}px, $ORIGINAL_SIZE) - 최적화 불필요"
         SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
     fi
-done
+done < <(find "$TARGET_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \))
 
 echo ""
 echo -e "${GREEN}완료!${NC} 최적화: ${OPTIMIZED_COUNT}개, 건너뜀: ${SKIPPED_COUNT}개"
