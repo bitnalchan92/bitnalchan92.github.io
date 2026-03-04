@@ -1,0 +1,53 @@
+<!-- Desktop Sidebar Toggle -->
+<script>
+  (function () {
+    var ATTR = 'sidebar-hidden';
+    var KEY = 'sidebar-hidden';
+
+    function isDesktop() {
+      return window.innerWidth >= 850;
+    }
+
+    function setHidden(hidden, animate) {
+      if (!animate) {
+        document.body.classList.add('no-sidebar-transition');
+      }
+      if (hidden) {
+        document.body.setAttribute(ATTR, '');
+      } else {
+        document.body.removeAttribute(ATTR);
+      }
+      localStorage.setItem(KEY, hidden ? 'true' : 'false');
+      if (!animate) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            document.body.classList.remove('no-sidebar-transition');
+          });
+        });
+      }
+    }
+
+    // Restore state before paint
+    if (isDesktop() && localStorage.getItem(KEY) === 'true') {
+      setHidden(true, false);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var collapseBtn = document.getElementById('sidebar-collapse-btn');
+      var trigger = document.getElementById('sidebar-trigger');
+      if (!collapseBtn || !trigger) return;
+
+      collapseBtn.addEventListener('click', function () {
+        if (isDesktop()) setHidden(true, true);
+      });
+
+      // Intercept sidebar-trigger click on desktop before the bundled mobile handler runs
+      trigger.addEventListener('click', function (e) {
+        if (isDesktop()) {
+          e.stopImmediatePropagation();
+          setHidden(false, true);
+        }
+      }, true); // useCapture: true to run before the bundled handler
+    });
+  })();
+</script>

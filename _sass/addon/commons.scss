@@ -805,6 +805,10 @@ $btn-mb: 0.5rem;
     }
   }
 
+  #sidebar-collapse-btn {
+    display: none;
+  }
+
   .sidebar-bottom {
     padding-left: 2rem;
     padding-right: 1rem;
@@ -1350,13 +1354,68 @@ search {
     overflow-y: scroll;
   }
 
-  #main-wrapper {
-    margin-left: $sidebar-width;
-  }
+  $slide-duration: 0.35s;
+  $slide-timing: ease;
 
   #sidebar {
+    transition: transform $slide-duration $slide-timing;
+
     .profile-wrapper {
       margin-top: 3rem;
+    }
+  }
+
+  #main-wrapper {
+    margin-left: $sidebar-width;
+    transition: margin-left $slide-duration $slide-timing;
+  }
+
+  /* Desktop sidebar trigger button (hidden by default, shown when sidebar is hidden) */
+  #sidebar-trigger {
+    display: none;
+  }
+
+  /* Desktop sidebar collapse button */
+  #sidebar #sidebar-collapse-btn {
+    display: block;
+    position: absolute;
+    top: 1.2rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--sidebar-btn-color);
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    z-index: 2;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  /* Desktop sidebar hidden state */
+  [sidebar-hidden] {
+    #sidebar {
+      transform: translateX(-$sidebar-width);
+    }
+
+    #main-wrapper {
+      margin-left: 0;
+    }
+
+    #sidebar-trigger {
+      display: block;
+    }
+  }
+
+  /* Disable transitions on initial page load */
+  .no-sidebar-transition {
+    #sidebar,
+    #main-wrapper {
+      transition: none !important;
     }
   }
 
@@ -1476,6 +1535,20 @@ search {
 
   #topbar-wrapper {
     left: $sidebar-width-large;
+  }
+
+  [sidebar-hidden] {
+    #sidebar {
+      transform: translateX(-$sidebar-width-large);
+    }
+
+    #main-wrapper {
+      margin-left: 0;
+    }
+
+    #topbar-wrapper {
+      left: 0;
+    }
   }
 
   search {
