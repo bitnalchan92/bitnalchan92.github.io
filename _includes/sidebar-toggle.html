@@ -27,7 +27,6 @@
       }
     }
 
-    // Restore state before paint
     if (isDesktop() && localStorage.getItem(KEY) === 'true') {
       setHidden(true, false);
     }
@@ -41,13 +40,13 @@
         if (isDesktop()) setHidden(true, true);
       });
 
-      // Intercept sidebar-trigger click on desktop before the bundled mobile handler runs
+      /* Intercept sidebar-trigger click on desktop before the bundled mobile handler */
       trigger.addEventListener('click', function (e) {
         if (isDesktop()) {
           e.stopImmediatePropagation();
           setHidden(false, true);
         }
-      }, true); // useCapture: true to run before the bundled handler
+      }, true);
     });
   })();
 </script>
