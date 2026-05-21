@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 알바페이 서비스 이용약관
-permalink: /terms/
+permalink: /albapay/terms/
 sitemap: false
 ---
 
