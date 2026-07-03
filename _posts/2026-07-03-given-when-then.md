@@ -26,7 +26,7 @@ When   사용자가 어떤 행동을 하면
 Then   어떤 결과가 나와야 한다
 ```
 
-Fowler는 Given-When-Then을 테스트를 표현하는 하나의 스타일이라고 설명한다. 조금 더 BDD스럽게 말하면, 테스트를 통해 **시스템의 행동을 명세하는 방식**이라고 볼 수 있다.
+Fowler는 Given-When-Then을 테스트를 표현하는 하나의 스타일이라고 설명한다. 조금 더 BDD답게 말하면, 테스트를 통해 **시스템의 행동을 명세하는 방식**이라고 볼 수 있다.
 
 즉, 테스트를 단순히 “이 값이 맞는지 확인하는 코드”로만 보는 것이 아니라, 아래처럼 읽히게 만드는 것이다.
 
@@ -119,13 +119,6 @@ assertThat(payroll.getStatus()).isEqualTo(PENDING);
 ```
 
 Fowler는 `Then`에 해당하는 명령은 부작용이 없어야 한다고 말한다. 즉, 검증 단계에서 시스템 상태를 또 바꾸면 안 된다.
-
-좋은 예시는 아래와 같다.
-
-```java
-assertThat(result.getAmount()).isEqualTo(80_000);
-assertThat(result.getStatus()).isEqualTo(PENDING);
-```
 
 반대로 아래처럼 검증 단계에서 상태를 변경하는 것은 좋지 않다.
 
